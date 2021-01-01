@@ -31,4 +31,26 @@ class Admin extends Model
         return $encrypt($password . $salt);
     }
 
+    /**
+     * 获取管理员名称
+     * @param int|null $adminId 管理员ID
+     * @param boolean $isSelect 是否下拉菜单
+     * @return array|string
+     */
+    public static function getAdminName($adminId = null, $isSelect = false)
+    {
+        static $admins = null;
+        if ($admins === null) {
+            $admins = self::column('id, username');
+            if ($isSelect === true) {
+                $admins = ['' => __('Please select')] + $admins;
+            }
+        }
+        if ($adminId === null) {
+            return $admins;
+        } else {
+            return isset($admins[$adminId]) ? $admins[$adminId] : '';
+        }
+    }
+
 }

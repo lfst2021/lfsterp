@@ -209,4 +209,9 @@ return [
     'User Module'                                           => '会员模块',
     'Register'                                              => '注册',
     'User Center'                                           => '会员中心',
+    'Enable'                                                => '启用',
+    'Disable'                                               => '禁用',
+    'Please select'                                         => '请选择',
+    'Created_at'                                            => '记录创建时间',
+    'Updated_at'                                            => '记录更新时间',
 ];

@@ -272,4 +272,21 @@ class Ajax extends Backend
         exit;
     }
 
+    /**
+     * 获取平台名称
+     */
+    public function platform()
+    {
+        $platforms = \app\admin\model\Platform::getPlatformName();
+        return json($platforms);
+    }
+
+    /**
+     * 获取管理员名称
+     */
+    public function admin()
+    {
+        $admin = \app\admin\model\Admin::getAdminName();
+        return json($admin);
+    }
 }
