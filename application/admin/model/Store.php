@@ -20,27 +20,6 @@ class Store extends Base
     const STATUS_DISABLE = 2;
 
     /**
-     * 获取店铺状态
-     * @param null|int $key 状态ID
-     * @return array|null|string
-     */
-    public static function getStatusName($key = null)
-    {
-        $statuses = null;
-        if ($statuses === null) {
-            $statuses = [
-                static::STATUS_ENABLE => __('Enable'),
-                static::STATUS_DISABLE => __('Disable'),
-            ];
-        }
-        if ($key === null) {
-            return $statuses;
-        } else {
-            return isset($statuses[$key]) ? $statuses[$key] : '';
-        }
-    }
-
-    /**
      * platform表relation方法
      * @return $this
      */

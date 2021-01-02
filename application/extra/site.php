@@ -22,8 +22,6 @@ return [
         'basic' => 'Basic',
         'email' => 'Email',
         'dictionary' => 'Dictionary',
-        'user' => 'User',
-        'example' => 'Example',
     ],
     'mail_type' => '1',
     'mail_smtp_host' => 'smtp.qq.com',
