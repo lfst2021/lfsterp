@@ -28,9 +28,50 @@ class OrderStatus extends Backend
      */
     protected $modelValidate = true;
 
-    public function _initialize()
+    public function index()
     {
-        parent::_initialize();
-        $this->model = new \app\admin\model\OrderStatus;
+        return $this->view->fetch();
+    }
+
+    public function index1()
+    {
+        $this->model = model('OrderStatus');
+        return parent::index();
+    }
+
+    public function index2()
+    {
+        $this->model = model('OrderFlowStatus');
+        return parent::index();
+    }
+
+    public function add()
+    {
+        if ($this->request->isPost()) {
+            $this->getCurrentModel();
+        }
+        return parent::add();
+    }
+
+    public function edit($ids = null)
+    {
+        $this->getCurrentModel();
+        return parent::edit($ids);
+    }
+
+    public function del($ids = "")
+    {
+        $this->getCurrentModel();
+        parent::del($ids);
+    }
+
+    protected function getCurrentModel()
+    {
+        $source = $this->request->get('source');
+        if ($source == 'order_status') { //订单状态
+            $this->model = new \app\admin\model\OrderStatus();
+        } else { //订单流转状态
+            $this->model = new \app\admin\model\OrderFlowStatus();
+        }
     }
 }
